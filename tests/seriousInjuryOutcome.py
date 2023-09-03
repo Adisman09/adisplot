@@ -1,4 +1,4 @@
-from sanPlot.charts import Line
+from adisPlot.charts import Line
 import pandas as pd
 
 data =  pd.read_csv("serious-injury-outcome-indicators-2000-2018-CSV.csv")

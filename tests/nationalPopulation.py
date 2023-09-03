@@ -1,5 +1,5 @@
 import pandas as pd
-from sanPlot.charts import Scatter
+from adisPlot.charts import Scatter
 
 
 data = pd.read_csv("national-population.csv")
