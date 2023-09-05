@@ -1,3 +1,6 @@
+from adisPlot.charts import Bar, Line,Scatter, Circle_Packing, NetworkChart, Pie , Heatmap
+import numpy as np
+
 # Test for Bar chart
 def test_bar_chart():
     x_values = ['A', 'B', 'C', 'D']
@@ -60,10 +63,65 @@ def test_scatter_chart():
     scatter_chart.render()
 
 # Test for Circle Packing chart
+
+data = [
+    {
+        "id": "World",
+        "datum": 6964195249,
+        "children": [
+            {
+                "id": "North America",
+                "datum": 450448697,
+                "children": [
+                    {"id": "United States", "datum": 308865000},
+                    {"id": "Mexico", "datum": 107550697},
+                    {"id": "Canada", "datum": 34033000},
+                ],
+            },
+            {
+                "id": "South America",
+                "datum": 278095425,
+                "children": [
+                    {"id": "Brazil", "datum": 192612000},
+                    {"id": "Colombia", "datum": 45349000},
+                    {"id": "Argentina", "datum": 40134425},
+                ],
+            },
+            {
+                "id": "Europe",
+                "datum": 209246682,
+                "children": [
+                    {"id": "Germany", "datum": 81757600},
+                    {"id": "France", "datum": 65447374},
+                    {"id": "United Kingdom", "datum": 62041708},
+                ],
+            },
+            {
+                "id": "Africa",
+                "datum": 311929000,
+                "children": [
+                    {"id": "Nigeria", "datum": 154729000},
+                    {"id": "Ethiopia", "datum": 79221000},
+                    {"id": "Egypt", "datum": 77979000},
+                ],
+            },
+            {
+                "id": "Asia",
+                "datum": 2745929500,
+                "children": [
+                    {"id": "China", "datum": 1336335000},
+                    {"id": "India", "datum": 1178225000},
+                    {"id": "Indonesia", "datum": 231369500},
+                ],
+            },
+        ],
+    }
+]
+
 def test_circle_packing_chart():
     circle_packing = Circle_Packing(data)
     circle_packing.compute_circle_positions()
-    circle_packing.plot_network_visualization()
+    circle_packing.render()
 
 # Test for NetworkChart (adisPlot/network_plot.py)
 def test_network_chart():
@@ -88,10 +146,26 @@ def test_pie_chart():
     
     pie_chart = Pie(
         labels=labels,
-        sizes=sizes,
+        values=sizes,
         title="Pie Chart Example"
     )
     pie_chart.render()
+
+# Test for Heat Map
+def test_heat_map():
+
+    # Create example data and labels
+    data = np.random.rand(5, 7)
+    x_labels = ["Label 1", "Label 2", "Label 3", "Label 4", "Label 5"]
+    y_labels = ["Category A", "Category B", "Category C", "Category D", "Category E", "Category F", "Category G"]
+
+    # Initialize a Heatmap instance
+
+    heatmap = Heatmap(data, x_labels=x_labels, y_labels=y_labels, title="Custom Heatmap Example", cmap="YlOrRd", colorbar=True, save="heatmap.png")
+
+    # Generate and display the heatmap
+    heatmap.render()
+
 
 # Run the tests
 if __name__ == "__main__":
@@ -101,3 +175,7 @@ if __name__ == "__main__":
     test_circle_packing_chart()
     test_network_chart()
     test_pie_chart()
+    test_heat_map()
+
+
+

@@ -3,9 +3,9 @@ A python library that enhance the efficiency and effectiveness of data visualiza
 
 #   Getting Started
 ###  With Python and Pip
-Make sure you have `python` programming language and updated `pip` package mananger. With the stated conditions being met, continue down below for get started.
+Make sure you have `vscode` (or any other text editor), `python` programming language and updated `pip` package mananger installed on your local machine. With the stated conditions being met, continue down below for get started. You might want to install `pandas` to test out the package using the test files in the in the repository.
 
-##  [Download the package](https://github.com/)
+##  [Download the package](https://github.com/TunarshBee/sanPlot/raw/main/dist/adisPlot-1.0.tar.gz)
 
 After downloading the package successfully, you can either install the package globally by openning your **Download** folder and running the below command in your command prompt:
 ```python
@@ -227,7 +227,7 @@ data = [
 from express_plotting import CirclePacking
 circle_packing_chart = CirclePacking(data)
 circle_packing_chart.compute_circle_positions()
-circle_packing_chart.plot_network_visualization()
+circle_packing_chart.render()
 ```
 
 After replacing the above example code in your `demo.py` file, you can run the code again and you should see the output as below:
@@ -267,7 +267,7 @@ The `render()` method generates and displays the heatmap based on the provided p
 
 ```python
 from adisPlot.charts import Heatmap
-
+import numpy as np
 
 # Create example data and labels
 data = np.random.rand(5, 7)
@@ -276,7 +276,7 @@ y_labels = ["Category A", "Category B", "Category C", "Category D", "Category E"
 
 # Initialize a Heatmap instance
 
-heatmap = Heatmap(data, x_labels=x_labels, y_labels=y_labels, title="Custom Heatmap Example", cmap="YlOrRd", colorbar=True, save_path="heatmap.png")
+heatmap = Heatmap(data, x_labels=x_labels, y_labels=y_labels, title="Custom Heatmap Example", cmap="YlOrRd", colorbar=True, save="heatmap.png")
 
 # Generate and display the heatmap
 heatmap.render()

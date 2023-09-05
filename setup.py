@@ -6,5 +6,5 @@ setup(
     description='A data visualization package',
     author='Your Name',
     packages=['adisPlot'],
-    install_requires=['plotly', 'matplotlib','netgraph','numpy','circlify']
+    install_requires=['plotly', 'matplotlib','netgraph','networkx','numpy','circlify']
 )
